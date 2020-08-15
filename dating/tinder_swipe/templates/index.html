@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
+
+        <title>{% block title %}{% endblock %}</title>
+
+        <!-- Meta -->
+        {# {% include "./seo/metatags.html" %} #}
+
+        {% block structured_data %}
+            {# {% include "./seo/general_structured_data.html" %} #}
+        {% endblock %}
+
+        <!-- Google stylesheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        
+        <!-- Custom sheets -->
+        <!-- <link rel="stylesheet" href="/static/extended_materialize.css">
+        <link rel="stylesheet" href="/static/hero.css">
+        <link rel="stylesheet" href="/static/header.css">
+        <link rel="stylesheet" href="/static/footer.css"> -->
+
+        {% block extra_css %}{% endblock extra_css %}
+
+        <link rel="alternate" href="johnpm.fr" hreflang="fr-fr" />
+
+        {% block datalayer %}
+            <script>window.dataLayer = window.dataLayer || [];</script>
+            {% block datalayer_push %}{% endblock %}
+        {% endblock %}
+        
+        <!-- Analytics -->
+        {# This is a specific technique to use Google Optimize with GTM #}
+        {# {% include "./analytics/google_analytics.html" with ga_tag="UA-148220996-1" optimize_tag="GTM-WXVG7KF" %} #}
+        
+        {# {% include "./analytics/tag_manager.html" with gtm_id="GTM-MC93PDN" %} #}
+        {# {% include "./analytics/facebook.html" with id="655123815011641" %} #}
+
+        <!-- Optimize -->
+        {# {% include "./analytics/optimize_anti_flicker.html" with optimize_tag="GTM-5S7S9CD" %} #}
+
+        <!-- Mailchimp -->
+        {# {% include "./analytics/mailchimp.html" %} #}
+
+        <!-- Adwords remarketing  -->
+        {# {% include "./analytics/remarketing.html" %} #}
+        {# {% block remarketing %}{% endblock %} #}
+
+        <!-- Appcues -->
+        <script src="//fast.appcues.com/37104.js"></script>
+        {% block appcues %}{% endblock %}
+    </head>
+    <body>
+        {# {% include "./analytics/google_no_script.html" with gtm_id="GTM-5S7S9CD" %} #}
+        
+        <!-- Facebook Pixel events -->
+        {% block facebook_event %}{% endblock %}
+        
+        <!-- Navbar -->
+        {% block nav %}
+            {# {% include "navs/nav.html" with nav_color="red darken-1" %} #}
+        {% endblock %}
+
+        <!-- Main content -->
+        <main>
+            {% block hero %}
+                <div class="container">
+                    {% block body %}{% endblock %}
+                </div>
+            {% endblock %}
+        </main>
+
+        <!-- Footer -->
+        {% block footer %}
+            {# {% include "navs/mini_footer.html" %} #}
+        {% endblock %}
+
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        
+        <!-- Minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+        <!-- Vue -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+        <!-- Materialize scripts -->
+        <!-- <script>
+            $(document).ready(function(){
+                // Sidenav
+                $('.sidenav').sidenav();
+                // Scrollspy
+                $('.scrollspy').scrollSpy();
+                // Select
+                $('select').formSelect();
+                // Slider 
+                $('.slider').slider();
+                // Modals
+                $('.modal').modal();
+                // Tooltips
+                $('.tooltipped').tooltip();
+            });
+        </script> -->
+
+        <!-- Extra scripts -->
+        {% block extra_scripts %}
+            <script src="/static/vue/swipe.js"></script>
+        {% endblock %}
+    </body>
+</html>

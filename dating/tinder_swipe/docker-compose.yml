@@ -1,0 +1,24 @@
+version: 3
+
+services:
+    swipebot:
+        build: .
+        container_name: tinder_swipe
+        env_file:
+        - ./env_file.env
+        ports:
+        - 5000:8000
+        volumes:
+        - .:/bot
+
+    enginx:
+        build: ./docker/nginx
+        container_name: enginx
+        restart: always
+        ports:
+            - 80:80
+        # depends_on: johnpm
+        # volumes:
+        #     - ./mywebsite/allstatic:/static/allstatic:ro
+        #     - ./mywebsite/media:/media/allmedia:ro
+    

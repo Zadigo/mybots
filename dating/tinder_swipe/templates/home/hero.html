@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block title %}Scorer{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div id="app">
+                <div class="row">
+                    <card v-bind:currentimage="currentimage" />
+                </div>
+
+                <p>What score do you give this image ?</p>
+                <div>
+                    <scoreperson />
+                </div>
+                <p>Would you match this person?</p>
+                <div>
+                    <matchperson />
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
